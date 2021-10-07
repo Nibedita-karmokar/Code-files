@@ -30,7 +30,6 @@ for i=1:length(zita)
     k(i)=acos(F(i))/d;
 end
 E_1=zeros(1,10);
-loop_e=1;
 One_ve=zeros(size(zita));
 One_minus_ve=zeros(size(zita));
 for i=1:length(zita)
@@ -38,10 +37,11 @@ for i=1:length(zita)
     One_minus_ve(i)=-1;
 end
 tolerance=0.00001;
+loop_count=1;
 for i=1:length(zita)
     if abs(F(i)-One_minus_ve(i))<tolerance | abs(F(i)-One_ve(i))<tolerance
-        E_1(loop_e)=zita(i);
-        loop_e=loop_e+1;
+        E_1(loop_count)=zita(i);
+        loop_count=loop_count+1;
     end
 end
 
